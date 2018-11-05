@@ -1,0 +1,14 @@
+version: '2'
+services:
+  gitlab:
+    image: osixia/openldap:1.2.2
+    container_name: kiss-ldap
+    volumes:
+      - $PWD/config:/etc/ldap
+      - $PWD/data:/var/lib/ldap
+    ports:
+      - 389:389
+    environment:
+      - LDAP_ORGANISATION="KissCloud"
+      - LDAP_DOMAIN="kisscloud.io"
+      - LDAP_ADMIN_PASSWORD="kisscloud"
